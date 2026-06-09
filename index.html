@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>DecodeLabs — Project 4: Form Design & Validation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            blueprint: '#0f1923',
+            panel: '#111d2b',
+            card: '#162233',
+            border: '#1e3248',
+            accent: '#f59e0b',
+            steel: '#3b82f6',
+            success: '#10b981',
+            danger: '#ef4444',
+            muted: '#64748b',
+            dim: '#94a3b8',
+          },
+          keyframes: {
+            'fade-up': { '0%': { opacity: 0, transform: 'translateY(16px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            'slide-in': { '0%': { opacity: 0, transform: 'translateX(-12px)' }, '100%': { opacity: 1, transform: 'translateX(0)' } },
+            'check-pop': { '0%': { transform: 'scale(0) rotate(-10deg)', opacity: 0 }, '70%': { transform: 'scale(1.2) rotate(4deg)' }, '100%': { transform: 'scale(1) rotate(0)', opacity: 1 } },
+          },
+          animation: {
+            'fade-up': 'fade-up 0.5s ease forwards',
+            'slide-in': 'slide-in 0.4s ease forwards',
+            'check-pop': 'check-pop 0.45s cubic-bezier(0.34,1.56,0.64,1) forwards',
+          },
+        }
+      }
+    }
+  </script>
+</head>
+<body class="blueprint-bg min-h-screen text-slate-100">
+
+  <!-- ═══════════════════ HEADER ═══════════════════ -->
+  <header class="border-b border-[#1e3248] px-6 py-4 flex items-center justify-between sticky top-0 z-50" style="background:rgba(15,25,35,0.95);backdrop-filter:blur(12px);">
+  
+      <span class=" font-bold text-sm tracking-wider text-slate-200">DecodeLab</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="phase-badge bg-amber-500/10 text-amber-400 border border-amber-500/20">Project 4</span>
+      <span class="header-optional-badge phase-badge bg-blue-500/10 text-blue-400 border border-blue-500/20">Optional Mastery</span>
+    </div>
+  </header>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="hero-section max-w-6xl mx-auto px-6 pt-16 pb-10 text-center" style="animation:fade-up 0.6s ease forwards">
+    <div class="hero-badge inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full border border-[#1e3248] text-xs font-mono text-slate-400">
+      <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+      Input → Process → Output  ·  IPO Architecture
+    </div>
+    <h1 class="hero-title font-extrabold text-4xl text-white leading-tight mb-4">
+      Form Design & <br>Validation Engine
+    </h1>
+    <p class="hero-desc text-slate-400 text-sm max-w-xl mx-auto leading-relaxed">
+      This isn't just a form — it's a security checkpoint. Built with semantic HTML, regex logic gates,
+      <code class="text-amber-400 font-mono text-xs">event.preventDefault()</code>, and full ARIA accessibility.
+    </p>
+  </section>
+
+  <!-- ═══════════════════ IPO PIPELINE ═══════════════════ -->
+  <section class="max-w-6xl mx-auto px-6 mb-10">
+    <div class="ipo-grid grid grid-cols-3 gap-4">
+      <div class="ipo-card rounded-xl p-5 border border-[#1e3248]" style="background:#162233">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="ipo-card-icon w-7 h-7 rounded-lg bg-blue-500/15 flex items-center justify-center">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <span class="font-mono text-xs text-blue-400 tracking-widest uppercase">Stage 1 · Input</span>
+        </div>
+        <p class=" font-semibold text-white text-sm mb-1">The Structure</p>
+        <p class="text-xs text-slate-400 leading-relaxed">Semantic HTML. Proper <code class="text-blue-300 font-mono">&lt;form&gt;</code>, <code class="text-blue-300 font-mono">&lt;label&gt;</code>, <code class="text-blue-300 font-mono">&lt;input&gt;</code> — never random divs.</p>
+      </div>
+      <div class="ipo-card rounded-xl p-5 border border-[#1e3248]" style="background:#162233">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="ipo-card-icon w-7 h-7 rounded-lg bg-amber-500/15 flex items-center justify-center">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          </div>
+          <span class="font-mono text-xs text-amber-400 tracking-widest uppercase">Stage 2 · Process</span>
+        </div>
+        <p class="font-semibold text-white text-sm mb-1">The Gatekeeper</p>
+        <p class="text-xs text-slate-400 leading-relaxed">JS + Regex gates. <code class="text-amber-300 font-mono">preventDefault()</code> shields the memory wipe. Every payload inspected.</p>
+      </div>
+      <div class="ipo-card rounded-xl p-5 border border-[#1e3248]" style="background:#162233">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="ipo-card-icon w-7 h-7 rounded-lg bg-emerald-500/15 flex items-center justify-center">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <span class="font-mono text-xs text-emerald-400 tracking-widest uppercase">Stage 3 · Output</span>
+        </div>
+        <p class="font-semibold text-white text-sm mb-1">The Communicator</p>
+        <p class="text-xs text-slate-400 leading-relaxed">Dynamic ARIA feedback. <code class="text-emerald-300 font-mono">aria-live</code> regions. JSON payload on approval.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ MAIN : SIDE-BY-SIDE ═══════════════════ -->
+  <main class="main-layout max-w-6xl mx-auto px-6 pb-20">
+
+    <!-- Success Overlay -->
+    <div id="successOverlay" class="success-overlay fixed inset-0 z-50 flex items-center justify-center" style="background:rgba(15,25,35,0.96);backdrop-filter:blur(16px);">
+      <div class="text-center max-w-md mx-auto px-8">
+        <div id="checkIcon" style="display:none" class="w-20 h-20 mx-auto mb-6 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2 class=" flex gap-4 items-center font-extrabold text-3xl text-white ml-12 mb-3">Payload Approved <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 text-green-400">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        </h2>
+        <p class="text-slate-400 text-sm mb-6">All logic gates cleared. Your data has been packaged and transmitted.</p>
+      
+        <button onclick="resetForm()" class="submit-btn" style="max-width:200px;margin:0 auto">← New Submission</button>
+      </div>
+    </div>
+
+    <!-- Mobile info topbar (shows on ≤425px instead of side panel) -->
+    <div class="info-topbar mb-5 p-4 rounded-xl border border-[#1e3248] items-center gap-3" style="background:#162233">
+      <div class="w-8 h-8 rounded-lg bg-amber-500/15 flex items-center justify-center flex-shrink-0">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="font-mono text-xs text-amber-400">Architecture of Trust</div>
+        <div class="text-xs text-slate-400">Semantic HTML · Regex Gates · ARIA Accessibility</div>
+      </div>
+    </div>
+
+    <!-- Side-by-side container -->
+    <div class="main-inner">
+
+      <!-- ── LEFT : Info Panel ── -->
+      <aside class="info-panel">
+        <div class="info-sticky">
+          <div class="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full border border-[#1e3248] text-xs font-mono text-slate-500">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+            Optional Mastery · Phase 4
+          </div>
+          <h2 class=" font-extrabold text-2xl text-white leading-snug mb-3">Architecture<br/>of Trust</h2>
+          <p class="text-slate-400 text-xs leading-relaxed mb-6">A form is your application's primary defense mechanism. We engineer it using the Input-Process-Output model.</p>
+
+          <div class="space-y-3 mb-6">
+            <div class="flex gap-3 items-start p-3 rounded-xl border border-[#1e3248]" style="background:#162233">
+              <div class="w-6 h-6 rounded-md bg-blue-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              </div>
+              <div>
+                <div class="font-mono text-xs text-blue-400 mb-0.5">Input · Structure</div>
+                <p class="text-xs text-slate-400">Semantic tags. Proper labels. Zero random divs.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-start p-3 rounded-xl border border-[#1e3248]" style="background:#162233">
+              <div class="w-6 h-6 rounded-md bg-amber-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+              </div>
+              <div>
+                <div class="font-mono text-xs text-amber-400 mb-0.5">Process · Gatekeeper</div>
+                <p class="text-xs text-slate-400"><code class="text-amber-300">preventDefault()</code> + Regex gates inspect every payload.</p>
+              </div>
+            </div>
+            <div class="flex gap-3 items-start p-3 rounded-xl border border-[#1e3248]" style="background:#162233">
+              <div class="w-6 h-6 rounded-md bg-emerald-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div>
+                <div class="font-mono text-xs text-emerald-400 mb-0.5">Output · Communicator</div>
+                <p class="text-xs text-slate-400">ARIA live regions. JSON payload. Dynamic visual feedback.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl border border-[#1e3248] mb-4" style="background:#162233">
+            <div class="font-mono text-xs text-slate-500 tracking-widest uppercase mb-3">Tech Stack</div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="phase-badge bg-blue-500/10 text-blue-400 border border-blue-500/15">HTML5</span>
+              <span class="phase-badge bg-amber-500/10 text-amber-400 border border-amber-500/15">Regex</span>
+              <span class="phase-badge bg-emerald-500/10 text-emerald-400 border border-emerald-500/15">ARIA</span>
+              <span class="phase-badge bg-violet-500/10 text-violet-400 border border-violet-500/15">aria-live</span>
+              <span class="phase-badge bg-rose-500/10 text-rose-400 border border-rose-500/15">JS</span>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl border border-[#1e3248]" style="background:#0f1923">
+            <div class="font-mono text-xs text-slate-500 tracking-widest uppercase mb-2">Password Regex</div>
+            <code class="font-mono text-xs text-amber-400 break-all leading-relaxed">/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[#?!@$%^&amp;*\-]).{8,}$/</code>
+            <div class="mt-2 space-y-1 text-xs font-mono text-slate-500">
+              <div><span class="text-blue-400">(?=.*[A-Z])</span> → Uppercase scanner</div>
+              <div><span class="text-emerald-400">(?=.*[0-9])</span> → Digit scanner</div>
+              <div><span class="text-rose-400">(?=.*[#?!…])</span> → Symbol scanner</div>
+              <div><span class="text-amber-400">.{8,}</span> → Length gate ≥ 8</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ── RIGHT : Form Card ── -->
+      <div class="form-panel">
+        <div class="rounded-2xl border border-[#1e3248] overflow-hidden" style="background:#111d2b;box-shadow:0 24px 64px rgba(0,0,0,0.5)">
+
+          <!-- Card Header -->
+          <div class="card-header px-8 py-6 border-b border-[#1e3248] flex items-center justify-between" style="background:linear-gradient(135deg,rgba(59,130,246,0.06),rgba(245,158,11,0.04))">
+            <div>
+              <div class="font-mono text-xs text-slate-500 tracking-widest uppercase mb-1">Semantic Skeleton · Phase 1</div>
+              <h2 class="section-heading font-bold text-xl text-white">Registration Checkpoint</h2>
+            </div>
+            <div class="text-right">
+              <div class="font-mono text-xs text-slate-500">Form ID</div>
+              <div class="font-mono text-xs text-green-400">#DL-FORM-04</div>
+            </div>
+          </div>
+
+          <!-- THE FORM -->
+          <form id="registrationForm" novalidate class="form-body px-8 py-8 space-y-6" aria-label="Registration form">
+
+            <!-- Row 1: Full Name + Username -->
+            <div class="form-row-2col grid grid-cols-2 gap-6">
+              <div class="field-group">
+                <label class="field-label" for="fullName">Full Name <span style="color:#5fc87f">*</span></label>
+                <div class="relative">
+                  <input class="form-input" type="text" id="fullName" name="fullName" placeholder="e.g. Idongesit Ikpe" autocomplete="name" aria-required="true" aria-describedby="fullName-msg" />
+                  <div id="fullName-icon" class="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 transition-opacity">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                </div>
+                <p id="fullName-msg" class="field-msg" role="alert" aria-live="polite"></p>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="username">Username <span style="color:#5fc87f">*</span></label>
+                <div class="relative">
+                  <input class="form-input" type="text" id="username" name="username" placeholder="e.g. id_dev99" autocomplete="username" aria-required="true" aria-describedby="username-msg" />
+                  <div id="username-icon" class="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 transition-opacity">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                </div>
+                <p id="username-msg" class="field-msg" role="alert" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <!-- Row 2: Email -->
+            <div class="field-group">
+              <label class="field-label" for="email">Email Address <span style="color:#5fc87f">*</span></label>
+              <div class="relative">
+                <input class="form-input" type="email" id="email" name="email" placeholder="e.g. user@domain.com" autocomplete="email" aria-required="true" aria-describedby="email-msg" />
+                <div id="email-icon" class="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 transition-opacity">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+              </div>
+              <p id="email-msg" class="field-msg" role="alert" aria-live="polite"></p>
+            </div>
+
+            <!-- Row 3: Phone + Role -->
+            <div class="form-row-2col grid grid-cols-2 gap-6">
+              <div class="field-group">
+                <label class="field-label" for="phone" >Phone Number <span style="color:#5fc87f">*</span></label>
+                <div class="relative">
+                  <input class="form-input" type="tel" id="phone" name="phone" placeholder="e.g. +234 800 000 0000" autocomplete="tel" aria-describedby="phone-msg" />
+                  <div id="phone-icon" class="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 transition-opacity">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                </div>
+                <p id="phone-msg" class="field-msg" role="alert" aria-live="polite"></p>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="role">Developer Role <span style="color:#5fc87f">*</span></label>
+                <div class="relative">
+                  <select class="form-input" id="role" name="role" aria-required="true" aria-describedby="role-msg" style="padding-right:14px;appearance:none">
+                    <option value="">Select a role…</option>
+                    <option value="frontend">Frontend Developer</option>
+                    <option value="backend">Backend Developer</option>
+                    <option value="fullstack">Full-Stack Developer</option>
+                    <option value="devops">DevOps Engineer</option>
+                    <option value="designer">UI/UX Designer</option>
+                  </select>
+                  <div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                  </div>
+                </div>
+                <p id="role-msg" class="field-msg" role="alert" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <!-- Row 4: Password -->
+            <div class="field-group">
+              <label class="field-label" for="password">
+                Password <span style="color:#5fc87f">*</span>
+                <span style="color:#475569;font-family:'DM Sans',sans-serif;text-transform:none;letter-spacing:0;font-size:11px"> — regex enforced</span>
+              </label>
+              <div class="relative">
+                <input class="form-input" type="password" id="password" name="password" placeholder="Min 8 chars · uppercase · number · symbol" autocomplete="new-password" aria-required="true" aria-describedby="password-msg password-strength-label" oninput="livePasswordCheck()" />
+                <button type="button" onclick="togglePwd('password')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition-colors">
+                  <svg id="eye-password" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+              <div class="mt-2">
+                <div class="flex gap-1 mb-1">
+                  <div id="bar1" class="strength-bar flex-1" style="background:#1e3248"></div>
+                  <div id="bar2" class="strength-bar flex-1" style="background:#1e3248"></div>
+                  <div id="bar3" class="strength-bar flex-1" style="background:#1e3248"></div>
+                  <div id="bar4" class="strength-bar flex-1" style="background:#1e3248"></div>
+                </div>
+                <div id="password-strength-label" class="font-mono text-xs text-slate-600" aria-live="polite"></div>
+              </div>
+              <div class="pw-checklist mt-2 grid grid-cols-2 gap-1 text-xs font-mono">
+                <div id="check-upper"  class="flex items-center gap-1.5 text-slate-600"><span class="w-1.5 h-1.5 rounded-full" style="background:#1e3248;display:inline-block"></span>Uppercase</div>
+                <div id="check-lower"  class="flex items-center gap-1.5 text-slate-600"><span class="w-1.5 h-1.5 rounded-full" style="background:#1e3248;display:inline-block"></span>Lowercase</div>
+                <div id="check-number" class="flex items-center gap-1.5 text-slate-600"><span class="w-1.5 h-1.5 rounded-full" style="background:#1e3248;display:inline-block"></span>Number</div>
+                <div id="check-special"class="flex items-center gap-1.5 text-slate-600"><span class="w-1.5 h-1.5 rounded-full" style="background:#1e3248;display:inline-block"></span>Special char</div>
+                <div id="check-length" class="flex items-center gap-1.5 text-slate-600"><span class="w-1.5 h-1.5 rounded-full" style="background:#1e3248;display:inline-block"></span>8+ characters</div>
+              </div>
+              <p id="password-msg" class="field-msg" role="alert" aria-live="polite"></p>
+            </div>
+
+            <!-- Row 5: Confirm Password -->
+            <div class="field-group">
+              <label class="field-label" for="confirmPassword">Confirm Password <span style="color:#5fc87f">*</span></label>
+              <div class="relative">
+                <input class="form-input" type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" autocomplete="new-password" aria-required="true" aria-describedby="confirmPassword-msg" />
+                <button type="button" onclick="togglePwd('confirmPassword')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition-colors">
+                  <svg id="eye-confirmPassword" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+              <p id="confirmPassword-msg" class="field-msg" role="alert" aria-live="polite"></p>
+            </div>
+
+            <!-- Divider -->
+            <div class="flex items-center gap-4">
+              <div class="flex-1 h-px" style="background:#1e3248"></div>
+              <span class="font-mono text-xs text-slate-600 tracking-widest">AGREEMENTS</span>
+              <div class="flex-1 h-px" style="background:#1e3248"></div>
+            </div>
+
+            <!-- Checkboxes -->
+            <div class="space-y-3">
+              <label class="flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" id="termsCheck" class="mt-0.5 flex-shrink-0" aria-describedby="terms-msg" />
+                <span class="text-sm text-slate-400 leading-relaxed">
+                  I agree to the <span class="text-blue-400 underline">Terms of Service</span> and <span class="text-blue-400 underline">Privacy Policy</span>.
+                </span>
+              </label>
+              <p id="terms-msg" class="field-msg ml-7" role="alert" aria-live="polite"></p>
+              <label class="flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" id="ageCheck" class="mt-0.5 flex-shrink-0" />
+                <span class="text-sm text-slate-400">I confirm I am 18 years or older.</span>
+              </label>
+            </div>
+
+            <!-- Form-level error -->
+            <div id="formError" style="display:none;background:rgba(239,68,68,0.08)" class="rounded-lg border border-red-500/30 px-4 py-3 flex items-center gap-3">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <p id="formErrorText" class="text-sm text-red-400"></p>
+            </div>
+
+            <!-- Submit -->
+            <div class="pt-2">
+              <button type="submit" class="submit-btn" id="submitBtn">
+                <span id="submitLabel">Deploy Registration</span>
+              </button>
+              <p class="text-center font-mono text-xs text-slate-600 mt-3">
+                Fields marked <span style="color:#ef4444">*</span> are required · Processed client-side
+              </p>
+            </div>
+
+          </form>
+
+          <!-- Card Footer -->
+          <div class="card-footer px-8 py-4 border-t border-[#1e3248] flex flex-wrap gap-2" style="background:rgba(15,25,35,0.5)">
+            <span class="phase-badge bg-blue-500/10 text-blue-400 border border-blue-500/15 text-xs">Semantic HTML5</span>
+            <span class="phase-badge bg-amber-500/10 text-amber-400 border border-amber-500/15 text-xs">preventDefault()</span>
+            <span class="phase-badge bg-rose-500/10 text-rose-400 border border-rose-500/15 text-xs">Regex</span>
+            <span class="phase-badge bg-emerald-500/10 text-emerald-400 border border-emerald-500/15 text-xs">ARIA</span>
+            <span class="phase-badge bg-violet-500/10 text-violet-400 border border-violet-500/15 text-xs">JSON Output</span>
+          </div>
+
+        </div><!-- /form card -->
+      </div><!-- /form-panel -->
+
+    </div><!-- /main-inner -->
+
+    <p class="text-center font-mono text-xs text-slate-700 mt-8">
+      DecodeLabs · Project 4 · Form Design &amp; Validation · Engineering the Architecture of Trust
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
