@@ -48,7 +48,7 @@
   <!-- ═══════════════════ HEADER ═══════════════════ -->
   <header class="border-b border-[#1e3248] px-6 py-4 flex items-center justify-between sticky top-0 z-50" style="background:rgba(15,25,35,0.95);backdrop-filter:blur(12px);">
   
-      <span class=" font-bold text-sm tracking-wider text-slate-200">DecodeLab</span>
+      <span class=" font-bold text-sm tracking-wider text-slate-200">Decode Labs</span>
     </div>
     <div class="flex items-center gap-2">
       <span class="phase-badge bg-slate-500/10 text-green-400 border border-amber-500/20">Project 4</span>
@@ -59,7 +59,13 @@
   <section class="hero-section max-w-6xl mx-auto px-6 pt-16 pb-10 text-center" style="animation:fade-up 0.6s ease forwards">
     <div class="hero-badge inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full border border-[#1e3248] text-xs font-mono text-slate-400">
       <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-      Input → Process → Output  ·  IPO Architecture
+      Input <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
+        <path fill-rule="evenodd" d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+      </svg>
+       Process <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
+        <path fill-rule="evenodd" d="M16.72 7.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1 0 1.06l-3.75 3.75a.75.75 0 1 1-1.06-1.06l2.47-2.47H3a.75.75 0 0 1 0-1.5h16.19l-2.47-2.47a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+      </svg>
+       Output  ·  IPO Architecture
     </div>
     <h1 class="hero-title font-extrabold text-4xl text-white leading-tight mb-4">
       Form Design & <br>Validation Engine
@@ -121,7 +127,10 @@
         </h2>
         <p class="text-slate-400 text-sm mb-6">All logic gates cleared. Your data has been packaged and transmitted.</p>
       
-        <button onclick="resetForm()" class="submit-btn" style="max-width:200px;margin:0 auto">← New Submission</button>
+        <button onclick="resetForm()" class="submit-btn" style="max-width:200px;margin:0 auto;display: flex; align-items: center; gap:2px;"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
+          <path fill-rule="evenodd" d="M7.28 7.72a.75.75 0 0 1 0 1.06l-2.47 2.47H21a.75.75 0 0 1 0 1.5H4.81l2.47 2.47a.75.75 0 1 1-1.06 1.06l-3.75-3.75a.75.75 0 0 1 0-1.06l3.75-3.75a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
+        </svg>
+        New Submission</button>
       </div>
     </div>
 
@@ -350,7 +359,10 @@
               <p id="terms-msg" class="field-msg ml-7" role="alert" aria-live="polite"></p>
               <label class="flex items-start gap-3 cursor-pointer">
                 <input type="checkbox" id="ageCheck" class="mt-0.5 flex-shrink-0" />
-                <span class="text-sm text-slate-400">I confirm I am 18 years or older.</span>
+                <span class="text-sm text-slate-400 flex items-center">I confirm I am 18<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 pr-1">
+                  <path fill-rule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clip-rule="evenodd" />
+                </svg>
+                 years.</span>
               </label>
             </div>
 

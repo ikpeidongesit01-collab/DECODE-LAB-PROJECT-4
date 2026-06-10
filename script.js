@@ -8,7 +8,7 @@ const REGEX = {
 
   const FIELDS = {
     fullName:        { required:true,  msg:{ empty:'Full name is required.',        invalid:'Enter at least two words (e.g. Isaac Damilola).' }},
-    username:        { required:true,  msg:{ empty:'Username is required.',          invalid:'3–20 chars; letters, numbers, underscores only.' }},
+    username:        { required:true,  msg:{ empty:'Username is required.',          invalid:'3-20 chars; letters, numbers, underscores only.' }},
     email:           { required:true,  msg:{ empty:'Email address is required.',     invalid:'Invalid email syntax. Check format: user@domain.com' }},
     phone:           { required:false, msg:{ invalid:'Invalid phone number format.' }},
     role:            { required:true,  msg:{ empty:'Please select a developer role.' }},
